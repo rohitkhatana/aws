@@ -51,6 +51,6 @@ if __name__ == '__main__':
     ac = ApplicationLoadBalancer()
     instance_ips = map(lambda x: x.public_ip_address, ac.get_instances_by_arn(config.arn))
     import json
-    inventory = {'group_name': instance_ips}
+    inventory = {config.group_name: instance_ips}
     print json.dumps(inventory)
 
