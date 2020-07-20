@@ -25,7 +25,6 @@ class ApplicationLoadBalancer(LoadBalancer):
     def __init__(self):
         super(ApplicationLoadBalancer, self).__init__()
         self.alb_client = boto3.client('elbv2', region_name=self.region_name)
-        self.ec2_client = boto3.client('ec2', region_name=self.region_name)
         self.ec2_client = boto3.resource('ec2', region_name=self.region_name)
 
     def by_dns_name(self, dns):
